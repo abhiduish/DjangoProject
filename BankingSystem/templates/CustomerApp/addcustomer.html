@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Add Customer</title>
+    </head>
+    <body>
+        <form action="../add/" method="POST">
+            {% csrf_token %}
+            <label >Name:-</label>
+            <input type="text" name="name" value=""/><br>
+            <label >AccountNo::-</label>
+            <input type="text" name="account_no" value=""/><br>
+            <label >Gender:-</label>
+            <input type="radio" name="gender" value="male"/>Male
+            <input type="radio" name="gender" value="female"/>Female
+            <input type="radio" name="gender" value="other"/>Other<br>
+            <label >Balance</label>
+            <input type="text" name="balance" value=""/><br><br>
+        
+            <label >Address</label>
+            <input type="text" name="address" value=""/><br>
+
+            <input type="submit" value="Register"/><br>
+
+            {% if message %}
+            <h3>{{ message }}</h3>
+            {% endif %}
+        </form>
+        <br><br><a href="../">Back</a>
+        <br>
+    </body>
+</html>

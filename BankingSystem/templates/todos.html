@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% load static %}
+<link rel="stylesheet" href="{%  static  'css/dsd.css'  %}">
+
+<script>
+$(document).ready(function()
+{
+  $("button").click(function()
+  {
+      getlist()
+  });
+
+});
+
+function getlist()
+{
+                    $("#all").html("Downloading....")
+
+                    var myurl = "http://jsonplaceholder.typicode.com/todos";
+
+                    $.get(myurl, function(data,status) 
+                    {
+                        var appusers = data;
+
+                        console.log(appusers)
+
+                        var result = "<div class='div10'>";
+
+                        // result += "<tr><td align = 'center'>albumId</td><td align = 'center'>id</td><td align = 'center'>title</td><td align = 'center'>url</td><td align = 'center'>thumbnailUrl</td></tr>"
+
+                        for (let index = 0; index < appusers.length; index++) 
+                        {
+                            result += "<div class='tod11'><div class='tod1'>"+ appusers[index].userId +"</div><br><div class='tod2'>"+appusers[index].id+"</div><br><div class='tod3'>"+appusers[index].title+"</div><br><div class = 'tod4'>"+appusers[index].completed+"</div></div>";
+                        }
+                        result += "</div>";
+                        $("#all").html(result);
+                        });
+                    }
+ 
+</script>
+</head>
+<body>
+    <h1 style="background-color: gold;color: black; font-family: sans-serif;text-align: center;">Todos</h1>
+<button>User List</button>
+<a href="C:\Users\my\PycharmProjects\abhijeet_assignment\Jquery\ajexcomments.html">go to ajexcomments</a>
+<div id="all"></div>
+
+
+</body>
+</html>
